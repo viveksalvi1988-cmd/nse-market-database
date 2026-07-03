@@ -17,5 +17,8 @@ jobs:
       - name: Install packages
         run: pip install -r requirements.txt
 
-      - name: Run
-        run: echo "GitHub Action is working!"
+      - name: Run Bhavcopy
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+        run: python main.py
